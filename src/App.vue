@@ -1,14 +1,23 @@
 <template>
   <div id="app">
+    <Header />
     <div class="container">
       <router-view />
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+
 export default {
+  components: {
+    Header,
+    Footer,
+  },
   mounted() {
     this.fetchUsers();
     this.fetchUsersPhotos();

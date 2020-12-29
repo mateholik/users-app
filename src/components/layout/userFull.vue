@@ -86,7 +86,6 @@ export default {
 <style scoped lang="scss">
 .row {
   display: flex;
-  margin-bottom: 4rem;
   &__col {
     flex: 1;
     &:first-of-type {
@@ -96,17 +95,14 @@ export default {
 }
 .portrait {
   position: relative;
-  border-top-right-radius: 3rem;
-  border-bottom-left-radius: 3rem;
+  background: #f6faff;
   transition: all 1s;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   &:after,
   &:before {
     content: " ";
     width: 3rem;
     height: 3rem;
     position: absolute;
-    border: 0 solid #fff;
     transition: all 1s;
     z-index: 99;
     opacity: 0.7;
@@ -124,21 +120,27 @@ export default {
     border-right: 1.5rem solid #fdc164;
   }
   &:hover {
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
     &:before,
     &:after {
       width: 100%;
       height: 100%;
     }
-    img {
-      transform: scale(1.1);
+    .wrap {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+      transition: all 1s;
+      img {
+        transform: scale(1.1);
+      }
     }
   }
   .wrap {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     img {
       display: block;
       width: 100%;

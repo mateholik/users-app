@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Loader from "./../Loader";
+import Loader from "./Loader";
 export default {
   name: "userShort",
   components: {

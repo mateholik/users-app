@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="wrap">
-      <userShort v-for="user in allUsers" :key="user.id" :user="user" />
+      <userPreview v-for="user in allUsers" :key="user.id" :user="user" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import userShort from "./users/userShort";
+import userPreview from "./../sections/userPreview";
 export default {
   name: "Index",
   components: {
-    userShort,
+    userPreview,
   },
   computed: mapGetters(["allUsers"]),
 };
