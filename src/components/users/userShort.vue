@@ -26,10 +26,10 @@
             <img src="./../../assets/icons/world.svg" alt="world" />
           </a>
         </div>
-        <a href="#" class="btn">
+        <router-link :to="'/user/' + user.id" class="btn">
           More
           <img src="./../../assets/icons/right-arrow.svg" alt="arrow" />
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
 <script>
 import Loader from "./../Loader";
 export default {
-  name: "usersShort",
+  name: "userShort",
   components: {
     Loader,
   },

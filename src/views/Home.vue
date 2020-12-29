@@ -1,15 +1,25 @@
 <template>
-  <Index/>
+  <div>
+    <h1>Our Team</h1>
+    <Index />
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Index from '@/components/Index.vue'
+import Index from "@/components/Index.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    Index
-  }
-}
+    Index,
+  },
+};
 </script>
+
+<style scoped>
+h1 {
+  margin: 4rem 0;
+  text-align: center;
+}
+</style>

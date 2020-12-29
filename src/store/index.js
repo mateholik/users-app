@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     users: [],
+    currentUser: {},
   },
   mutations: {
     setUsers(state, payload) {
@@ -15,6 +16,12 @@ export default new Vuex.Store({
     setUsersPhotos(state, payload) {
       state.users.forEach((item, i) => {
         Vue.set(state.users[i], "image", payload[i]);
+      });
+    },
+    /* eslint-disable no-unused-vars */
+    setCurrentUser(state, id) {
+      state.currentUser = state.users.find((user) => {
+        return user.id === id * 1;
       });
     },
   },
@@ -27,7 +34,6 @@ export default new Vuex.Store({
         })
         .catch((err) => console.error(err));
     },
-
     fetchUsersPhotos({ commit }) {
       axios
         .get(
@@ -44,10 +50,17 @@ export default new Vuex.Store({
         })
         .catch((err) => console.error(err));
     },
+    /* eslint-disable no-unused-vars */
+    initCurrentUser({ commit }, id) {
+      commit("setCurrentUser", id);
+    },
   },
   getters: {
     allUsers(state) {
       return state.users;
+    },
+    currentUser(state) {
+      return state.currentUser;
     },
   },
 });
