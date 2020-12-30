@@ -122,30 +122,6 @@ export default {
         }
       }
     }
-    .btn {
-      text-decoration: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 8rem;
-      height: 2.5rem;
-      box-shadow: 0 0.3rem #64a0fd;
-      background: #e3e7f2;
-      border-radius: 0.5rem;
-      color: #222;
-      font-size: 1.4rem;
-      &:active {
-        box-shadow: 0 0.1rem #3e85f2;
-        transform: translateY(0.3rem);
-      }
-      &:hover {
-        background: #d7ddee;
-      }
-      img {
-        width: 1.5rem;
-        margin-left: 1rem;
-      }
-    }
   }
 }
 </style>
