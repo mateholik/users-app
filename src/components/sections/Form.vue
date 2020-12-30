@@ -6,8 +6,8 @@
     <transition name="fade">
       <div v-if="showForm" class="form-holder">
         <form @submit.prevent v-click-outside="onClickOutside">
-          <h3>Join Our Team</h3>
-          <p>Tell as about you self!</p>
+          <h2>Join Our Team</h2>
+          <p>Tell as about yourself!</p>
           <div :class="{ 'error': $v.name.$error }">
             <input v-model.trim="$v.name.$model" type="text" placeholder="Name" />
             <div v-if="$v.name.$error">
@@ -177,14 +177,14 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: #edeef2;
+    background: #fff;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     @media (max-width: 768px) {
       margin: 0 1.5rem;
     }
-    h3,
+    h2,
     p {
       text-align: center;
     }
@@ -198,7 +198,8 @@ export default {
       border-bottom: 1px solid grey;
       box-shadow: 0 0 #64a0fd;
       transition: 0.2s;
-      background: #edeef2;
+      background: #fff;
+      font-size: 1.6rem;
       &:focus {
         border-bottom: 1px solid #64a0fd;
         box-shadow: 0 0.1rem #64a0fd;
@@ -209,16 +210,19 @@ export default {
       width: 100%;
       max-height: 10rem;
       height: 10rem;
+      font-family: inherit;
+      font-size: inherit;
     }
     .error {
       input,
       textarea {
-        border-bottom: 1px solid red;
-        box-shadow: 0 0.1rem red;
+        border-bottom: 1px solid #f2513e;
+        box-shadow: 0 0.1rem #f2513e;
       }
       .hint {
         color: #f2513e;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
       }
     }
     .status {

@@ -11,10 +11,10 @@
       </div>
       <div class="item__info">
         <p class="name">{{user.name}}</p>
-        <!-- <p class="item__company">
+        <p class="company">
           <span>Company:</span>
           {{user.company.name}}
-        </p>-->
+        </p>
         <div class="contacts">
           <a :href="'tel:' + user.phone" class="contacts__item">
             <img src="./../../assets/icons/call.svg" alt="phone" />
@@ -79,7 +79,8 @@ export default {
   &__wrap {
     border-radius: 0.5rem;
     display: flex;
-    height: 18rem;
+    min-height: 18rem;
+    height: 100%;
     background: #fff3e2;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: 0.2s;
@@ -108,9 +109,15 @@ export default {
       text-transform: uppercase;
       font-weight: 500;
       font-size: 2rem;
-      margin-bottom: 1.5rem;
       @media (max-width: 768px) {
         font-size: 1.8rem;
+      }
+    }
+    .company {
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      span {
+        color: #64a0fd;
       }
     }
     .contacts {

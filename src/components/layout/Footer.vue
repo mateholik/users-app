@@ -13,12 +13,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 footer {
-  margin-top: 4rem;
-  background: rgb(252, 163, 24);
+  margin-top: 10rem;
+  @media (max-width: 768px) {
+    margin-top: 6rem;
+  }
+  background: rgb(62, 133, 242);
   background: linear-gradient(
     90deg,
-    rgba(252, 163, 24, 1) 0%,
-    rgba(253, 193, 100, 1) 100%
+    rgba(62, 133, 242, 1) 0%,
+    rgba(100, 160, 253, 1) 100%
   );
   padding: 1rem 0;
   color: #fff;

@@ -38,7 +38,6 @@ export default {
     rgba(62, 133, 242, 1) 0%,
     rgba(100, 160, 253, 1) 100%
   );
-
   padding: 0.5rem 0;
   .container {
     display: flex;

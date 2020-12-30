@@ -60,8 +60,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8rem;
-  height: 2.5rem;
+  width: 10rem;
+  height: 3rem;
   box-shadow: 0 0.3rem #64a0fd;
   border-radius: 0.5rem;
   font-size: 1.4rem;
