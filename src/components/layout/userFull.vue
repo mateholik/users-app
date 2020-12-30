@@ -86,10 +86,24 @@ export default {
 <style scoped lang="scss">
 .row {
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   &__col {
     flex: 1;
     &:first-of-type {
       margin-right: 4rem;
+      @media (max-width: 768px) {
+        order: 2;
+        margin-right: 0;
+      }
+    }
+    &:last-of-type {
+      @media (max-width: 768px) {
+        order: 1;
+        max-width: 30rem;
+        margin: 0 auto 3rem;
+      }
     }
   }
 }

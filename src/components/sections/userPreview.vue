@@ -71,6 +71,11 @@ export default {
       }
     }
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+  }
   &__wrap {
     border-radius: 0.5rem;
     display: flex;
@@ -104,6 +109,9 @@ export default {
       font-weight: 500;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
     }
     .contacts {
       display: flex;

@@ -149,6 +149,11 @@ export default {
       left: 100%;
     }
   }
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    width: 18rem;
+    height: 4rem;
+  }
   &__holder {
     position: fixed;
     z-index: 999;
@@ -175,6 +180,9 @@ export default {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    @media (max-width: 768px) {
+      margin: 0 1.5rem;
+    }
     h3,
     p {
       text-align: center;

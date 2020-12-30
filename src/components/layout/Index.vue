@@ -24,5 +24,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1.5rem;
+  @media (max-width: 900px) {
+    margin: 0;
+  }
 }
 </style>

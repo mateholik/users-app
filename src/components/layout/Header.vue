@@ -10,11 +10,14 @@
       </div>
     </div>
     <div class="container">
-      <h1 v-if="$route.path === '/'">Our Team</h1>
-      <h1 v-else>
+      <h1 class="home" v-if="$route.path === '/'">
+        Our Awesome Team
+        <img src="./../../assets/icons/cool.svg" alt="cool" />
+      </h1>
+      <h1 class="member" v-else>
         <router-link to="/" class="back">
           <img src="./../../assets/icons/home.svg" alt />
-        </router-link>Member Information
+        </router-link>Team Member Information
       </h1>
     </div>
   </header>
@@ -60,6 +63,11 @@ export default {
   }
 }
 h1 {
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+}
+h1.member {
   position: relative;
   margin: 4rem 0;
   text-align: center;
@@ -78,6 +86,16 @@ h1 {
     display: block;
     width: 100%;
     height: 100%;
+  }
+}
+h1.home {
+  margin: 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 4rem;
+    margin-left: 1rem;
   }
 }
 </style>
