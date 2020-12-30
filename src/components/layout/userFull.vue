@@ -1,67 +1,74 @@
 <template>
-  <div class="row">
-    <div class="row__col">
-      <div class="name">
-        <img src="./../../assets/icons/user.svg" alt="user" />
-        <h2>{{currentUser.name}}</h2>
-        <span>({{currentUser.username}})</span>
-      </div>
-      <div class="company">
-        <h3>Company:</h3>
-        <p>
-          <span>Name:</span>
-          {{currentUser.company.name}}
-        </p>
-        <p>
-          <span>Catch Phrase:</span>
-          {{currentUser.company.catchPhrase}}
-        </p>
-        <p>
-          <span>Field:</span>
-          {{currentUser.company.bs}}
-        </p>
-      </div>
+  <div>
+    <Loader v-if="!currentUser" />
+    <div v-else class="row">
+      <div class="row__col">
+        <div class="name">
+          <img src="./../../assets/icons/user.svg" alt="user" />
+          <h2>{{currentUser.name}}</h2>
+          <span>({{currentUser.username}})</span>
+        </div>
+        <div class="company">
+          <h3>Company:</h3>
+          <p>
+            <span>Name:</span>
+            {{currentUser.company.name}}
+          </p>
+          <p>
+            <span>Catch Phrase:</span>
+            {{currentUser.company.catchPhrase}}
+          </p>
+          <p>
+            <span>Field:</span>
+            {{currentUser.company.bs}}
+          </p>
+        </div>
 
-      <div class="contacts">
-        <h3>Contacts:</h3>
-        <a :href="'tel:' + currentUser.phone" class="contacts__item">
-          <img src="./../../assets/icons/call.svg" alt="phone" />
-          {{currentUser.phone}}
-        </a>
-        <a :href="'mailto:' + currentUser.email" class="contacts__item">
-          <img src="./../../assets/icons/email.svg" alt="envelop" />
-          {{currentUser.email}}
-        </a>
-        <a :href="'http://' + currentUser.website" target="_blank" class="contacts__item">
-          <img src="./../../assets/icons/world.svg" alt="world" />
-          {{currentUser.website}}
-        </a>
-      </div>
-      <div class="address">
-        <h3>Address:</h3>
-        <p>{{currentUser.address.street}}, {{currentUser.address.suite}}, {{currentUser.address.city}}</p>
-        <p>Latitude: {{currentUser.address.geo.lat}}, Longitude: {{currentUser.address.geo.lng}}</p>
-        <br />
-        <div>
-          <GmapMap
-            :center="{lat: currentUser.address.geo.lat * 1, lng: currentUser.address.geo.lng * 1}"
-            :zoom="3"
-            map-type-id="terrain"
-            style="width: 100%; height: 300px"
-          >
-            <GmapMarker
-              :position="{lat: currentUser.address.geo.lat * 1, lng: currentUser.address.geo.lng * 1}"
-              :clickable="false"
-              :draggable="false"
-            />
-          </GmapMap>
+        <div class="contacts">
+          <h3>Contacts:</h3>
+          <a :href="'tel:' + currentUser.phone" class="contacts__item">
+            <img src="./../../assets/icons/call.svg" alt="phone" />
+            {{currentUser.phone}}
+          </a>
+          <a :href="'mailto:' + currentUser.email" class="contacts__item">
+            <img src="./../../assets/icons/email.svg" alt="envelop" />
+            {{currentUser.email}}
+          </a>
+          <a :href="'http://' + currentUser.website" target="_blank" class="contacts__item">
+            <img src="./../../assets/icons/world.svg" alt="world" />
+            {{currentUser.website}}
+          </a>
+        </div>
+        <div class="address">
+          <h3>Address:</h3>
+          <p>{{currentUser.address.street}}, {{currentUser.address.suite}}, {{currentUser.address.city}}</p>
+          <p>Latitude: {{currentUser.address.geo.lat}}, Longitude: {{currentUser.address.geo.lng}}</p>
+          <br />
+          <div>
+            <GmapMap
+              :center="{lat: currentUser.address.geo.lat * 1, lng: currentUser.address.geo.lng * 1}"
+              :zoom="3"
+              map-type-id="terrain"
+              style="width: 100%; height: 300px"
+            >
+              <GmapMarker
+                :position="{lat: currentUser.address.geo.lat * 1, lng: currentUser.address.geo.lng * 1}"
+                :clickable="false"
+                :draggable="false"
+              />
+            </GmapMap>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row__col">
-      <div class="portrait">
-        <div class="wrap">
-          <img :src="currentUser.image.src.portrait" alt="portrait" />
+      <div class="row__col">
+        <div class="portrait">
+          <div class="wrap">
+            <div v-if="currentUser.image">
+              <img :src="currentUser.image.src.portrait" alt="portrait" />
+            </div>
+            <Loader v-else />
+            <div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,9 +77,20 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Loader from "./../sections/Loader";
 export default {
   name: "userFull",
-  computed: mapGetters(["currentUser"]),
+  components: {
+    Loader,
+  },
+  computed: mapGetters(["currentUser", "allUsers"]),
+  watch: {
+    allUsers: function (val) {
+      if (val) {
+        this.initCurrentUser(this.$route.params.id);
+      }
+    },
+  },
   created() {
     this.initCurrentUser(this.$route.params.id);
   },
@@ -167,6 +185,9 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 3rem;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   img {
     display: block;
     width: 3rem;

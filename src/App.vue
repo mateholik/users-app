@@ -2,7 +2,9 @@
   <div id="app">
     <Header />
     <div class="container">
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
     </div>
     <Form />
     <Footer />
@@ -53,7 +55,6 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 .btn {
   text-decoration: none;
   display: flex;
@@ -93,5 +94,18 @@ body {
     width: 1.5rem;
     margin-left: 1rem;
   }
+}
+
+// router
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

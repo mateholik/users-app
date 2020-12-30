@@ -3,18 +3,18 @@
     <div class="top">
       <div class="container">
         <router-link to="/" class="top__logo">Users App</router-link>
-        <a class="top__link" href="#">
+        <a class="top__link" href="https://github.com/mateholik/users-app" target="_blank">
           GitHub Repo
           <img src="./../../assets/icons/link.svg" alt="link" />
         </a>
       </div>
     </div>
     <div class="container">
-      <h1 class="home" v-if="$route.path === '/'">
+      <h1 key="1" class="home" v-if="$route.path === '/'">
         Our Awesome Team
         <img src="./../../assets/icons/cool.svg" alt="cool" />
       </h1>
-      <h1 class="member" v-else>
+      <h1 key="2" class="member" v-else>
         <router-link to="/" class="back">
           <img src="./../../assets/icons/home.svg" alt />
         </router-link>Team Member Information
@@ -80,6 +80,11 @@ h1.member {
     transform: translateY(-50%);
     &:hover {
       transform: scale(1.1) translateY(-30%);
+    }
+    @media (max-width: 768px) {
+      position: static;
+      display: block;
+      margin: 0 auto;
     }
   }
   img {

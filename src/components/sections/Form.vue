@@ -137,6 +137,7 @@ export default {
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, transparent, white, transparent);
+    top: 0;
     left: -100%;
     transition: 0.5s;
   }

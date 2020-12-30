@@ -24,4 +24,14 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach(function(to, from, next) {
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, 100);
+  next();
+});
+
 export default router;
